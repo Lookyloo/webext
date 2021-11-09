@@ -6,8 +6,10 @@ function onGot(tabs){
   var gettingAllCookies =  browser.cookies.getAll({storeId: tab.cookieStoreId});
   gettingAllCookies.then((cookies) => {
         console.log(cookies);
+        console.log(document.referrer);
         let url = 'http://127.0.0.1:5100/submit';
-        let data = { url: tab.url , listing: 0, cookies: cookies}
+        let data = {url: tab.url , listing: 0,
+                    cookies: cookies, referer: document.referrer}
 
         fetch(url, {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
