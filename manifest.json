@@ -3,6 +3,7 @@
   "name": "lookyloo",
   "description": "Submit a URL to capture to a lookyloo instance",
   "version": "0.0.1",
+  "permissions": ["<all_urls>", "tabs", "cookies"],
   "icons": {
     "64": "icons/icon.png"
   },
