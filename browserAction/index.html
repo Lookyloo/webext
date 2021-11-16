@@ -5,7 +5,32 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1 id="myHeading">Lookyloo -- </h1>
+    <div class="outer-wrapper">
+      <div class="capture">
+        <center>
+          <div style="font-size:30px">Lookyloo</div>
+
+          <div style="font-size:15px" class="stored-url"></div>
+        </center>
+        <hr/>
+        <div>
+          <input type="checkbox" id="useragent">
+          <label for="useragent">Pass the current useragent to the capture</label>
+          <div style="font-size:15px" class="current-ua"></div>
+        </div>
+        <!--
+        <div>
+          <input type="checkbox" id="referrer">
+          <label for="referrer">Pass referer of current tab to the capture</label>
+        </div>
+        -->
+        <div>
+          <input type="checkbox" id="cookies">
+          <label for="cookies">Pass all the cookies to the capture</label>
+        </div>
+        <button id="capture">Launch Capture on Lookyloo</button>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
