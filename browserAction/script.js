@@ -1,10 +1,16 @@
-function onGot(tabs){
+async function onGot(tabs){
   const tab = tabs.pop();
   console.log(tab);
-
-  // let pass_referrer = document.querySelector('.capture #referrer:checked') !== null;
+  let pass_referrer = document.querySelector('.capture #referrer:checked') !== null;
   let pass_cookies = document.querySelector('.capture #cookies:checked') !== null;
   let pass_ua = document.querySelector('.capture #useragent:checked') !== null;
+
+
+  const referrer = await browser.tabs.executeScript(tab.id, {
+        code: 'document.referrer'
+  }).then(result => result[0]);
+
+  console.log(`Referer: ${referrer}`);
 
   var gettingAllCookies =  browser.cookies.getAll({storeId: tab.cookieStoreId});
   gettingAllCookies.then((cookies) => {
@@ -15,9 +21,9 @@ function onGot(tabs){
       console.log(res);
       console.log(`${res.url}/submit`);
       let data = {url: tab.url , listing: 0}
-      //if (pass_referrer === true) {
-      //    data.referer = document.referrer;
-      //}
+      if (pass_referrer === true) {
+          data.referer = referrer;
+      }
       if (pass_cookies === true) {
           data.cookies = cookies
       }
