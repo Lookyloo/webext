@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <p>Current lookyloo URL: <b id="stored-url">no value found</b></p>
+    <p>
+      Current lookyloo URL: <b id="stored-url">no value found</b><br>
+      <b>Important</b>: submitting the cookies means <b>all</b> the cookies of the current user
+      are sent along with the capture, even if they are unrelated to the current tab.
+      You <b>absolutely do not want</b> to do that unless the instance you're using is private as it
+      will contain login cookies that can be reused by 3rd parties.
+    </p>
     <form class="browser-style">
-      <label>URL of the lookyloo instance</label>
-      <input type="text" id="url"/>
+
+      <label for="url">URL of the lookyloo instance</label>
+      <input type="text" id="url" name="url"/>
+      <br>
+
+      <input type="checkbox" id="private" name="private" value="private">
+      <label for="private">Tick the box if the instance is private and you know what you're doing.</label>
+      <br>
+
       <button class="browser-style" type="submit">Save</button>
     </form>
     <script src="script.js"></script>
