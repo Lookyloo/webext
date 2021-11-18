@@ -1,24 +1,22 @@
 async function onGot(tabs){
   const tab = tabs.pop();
-  console.log(tab);
   let pass_referrer = document.querySelector('.capture #referrer:checked') !== null;
   let pass_cookies = document.querySelector('.capture #cookies:checked') !== null;
   let pass_ua = document.querySelector('.capture #useragent:checked') !== null;
 
 
+  const config = await browser.storage.sync.get().then(res => res);
+
   const referrer = await browser.tabs.executeScript(tab.id, {
         code: 'document.referrer'
   }).then(result => result[0]);
-  console.log(`Referer: ${referrer}`);
 
-  const cookies = await browser.cookies.getAll({
+  let cookies = []
+  if (config.private) {
+    cookies = await browser.cookies.getAll({
       storeId: tab.cookieStoreId
-  }).then((cookies) => cookies);
-  console.log(cookies);
-
-  const config = await browser.storage.sync.get().then(res => res);
-  console.log(config);
-  console.log(`${config.url}/submit`);
+    }).then((cookies) => cookies);
+  };
 
   let data = {url: tab.url , listing: 0}
   if (pass_referrer === true) {
@@ -30,7 +28,6 @@ async function onGot(tabs){
   if (pass_ua === true) {
       data.user_agent = navigator.userAgent;
   }
-  console.log(data);
 
   await fetch(`${config.url}/submit`, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.

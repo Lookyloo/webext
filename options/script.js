@@ -1,7 +1,18 @@
-function saveOptions(e) {
+async function saveOptions(e) {
+  let private_ok = false;
+
+  if (document.querySelector("#private").checked) {
+    private_ok = await browser.permissions.request({permissions: ["cookies"]})
+        .then(response => response);
+  }
+  else {
+    private_ok = await browser.permissions.remove({permissions: ["cookies"]})
+      .then(response => false);
+  }
+
   browser.storage.sync.set({
     url: document.querySelector("#url").value,
-    private: document.querySelector("#private").checked
+    private: private_ok
   });
   e.preventDefault();
   document.querySelector("#stored-url").innerText = document.querySelector("#url").value;
@@ -10,9 +21,10 @@ function saveOptions(e) {
 function restoreOptions() {
   var storageItem = browser.storage.sync.get();
   storageItem.then((res) => {
-    document.querySelector("#stored-url").innerText = res.url;
+    if (res.url) {
+      document.querySelector("#stored-url").innerText = res.url;
+    }
     document.querySelector("#url").value = res.url || 'http://127.0.0.1:5100';
-
     document.querySelector("#private").checked = res.private;
   });
 }
