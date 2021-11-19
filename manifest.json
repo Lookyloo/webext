@@ -15,7 +15,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "{90eb853f-7c45-4b23-ab04-de3849cf6d50}",
+      "id": "lookyloo-submit@example.com",
       "strict_min_version": "57.0"
     }
   },
