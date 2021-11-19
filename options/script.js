@@ -10,7 +10,7 @@ async function saveOptions(e) {
       .then(response => false);
   }
 
-  browser.storage.sync.set({
+  browser.storage.local.set({
     url: document.querySelector("#url").value,
     private: private_ok
   });
@@ -19,7 +19,7 @@ async function saveOptions(e) {
 }
 
 function restoreOptions() {
-  var storageItem = browser.storage.sync.get();
+  var storageItem = browser.storage.local.get();
   storageItem.then((res) => {
     if (res.url) {
       document.querySelector("#stored-url").innerText = res.url;

@@ -5,7 +5,7 @@ async function onGot(tabs){
   let pass_ua = document.querySelector('.capture #useragent:checked') !== null;
 
 
-  const config = await browser.storage.sync.get().then(res => res);
+  const config = await browser.storage.local.get().then(res => res);
 
   const referrer = await browser.tabs.executeScript(tab.id, {
         code: 'document.referrer'
@@ -29,6 +29,7 @@ async function onGot(tabs){
       data.user_agent = navigator.userAgent;
   }
 
+  console.log(`${config.url}/submit`);
   await fetch(`${config.url}/submit`, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     // mode: 'cors', // no-cors, *cors, same-origin
@@ -72,12 +73,12 @@ function launchCapture() {
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
-  var lookylooURL = browser.storage.sync.get();
+  var lookylooURL = browser.storage.local.get();
   lookylooURL.then((res) => {
       document.querySelector(".stored-url").textContent = `Current instance: ${res.url}`
   });
   document.querySelector(".current-ua").textContent = `Current User-Agent: ${navigator.userAgent}`
-  browser.storage.sync.get().then(res => {
+  browser.storage.local.get().then(res => {
       if (!res.private) {
         document.querySelector(".cookie-box").hidden = true;
       }

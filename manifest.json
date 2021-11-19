@@ -1,40 +1,47 @@
 {
-  "manifest_version": 2,
-  "name": "lookyloo",
-  "description": "Submit a URL to capture to a lookyloo instance",
-  "version": "0.0.1",
-  "permissions": [
-      "activeTab",
-      "<all_urls>",
-      "storage"
-  ],
-  "optional_permissions": [
-      "cookies"
-  ],
-  "icons": {
-    "64": "icons/icon.png"
-  },
+  "author": "Lookyloo",
   "background": {
     "scripts": [
       "background_script.js"
     ]
   },
   "browser_action": {
+    "browser_style": true,
     "default_icon": {
       "64": "icons/icon.png"
     },
-    "default_popup": "browserAction/index.html",
-    "default_title": "lookyloo"
+    "default_title": "lookyloo",
+    "default_popup": "browserAction/index.html"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{90eb853f-7c45-4b23-ab04-de3849cf6d50}",
+      "strict_min_version": "57.0"
+    }
+  },
+  "description": "Submit the URL of the current tab to a lookyloo instance for capture.",
+  "developer": {
+    "name": "Lookyloo Team",
+    "url": "https://github.com/Lookyloo"
+  },
+  "homepage_url": "https://github.com/Lookyloo/webext",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "manifest_version": 2,
+  "name": "lookyloo",
+  "optional_permissions": [
+      "cookies"
+  ],
   "options_ui": {
     "page": "options/index.html",
     "browser_style": true,
     "chrome_style": true
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "lookyloo-submit@example.com",
-      "strict_min_version": "57.0"
-    }
-  }
+  "permissions": [
+      "activeTab",
+      "<all_urls>",
+      "storage"
+  ],
+  "version": "0.0.2"
 }
