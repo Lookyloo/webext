@@ -35,3 +35,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run lint
         run: web-ext lint
+        
+      # Runs a set of commands using the runners shell
+      - name: Run build
+        run: web-ext build
