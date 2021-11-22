@@ -1,11 +1,11 @@
 This is a web extension to submit a URL (along with with its context) to a Lookyloo instance.
 
-**Disclaimer**: This extension is aimed for users of [https://www.lookyloo.eu](Lookyloo)
+**Disclaimer**: This extension is aimed for users of [Lookyloo](https://www.lookyloo.eu)
 who have their own instance of the platform. It requires invasive  permissions
 and if used incorrectly, it may result in sharing cookies with third parties,
 potentially resulting in allowing them to login on websites without your consent.
 If you simply want to submit URLs to a lookyloo instance, you can give it a try
-on the [https://lookyloo.circl.lu](demo interface).
+on the [demo interface](https://lookyloo.circl.lu).
 
 # Features
 
@@ -27,11 +27,11 @@ in your browser and you can optionnally pass along the following parameters:
 
 # Installation
 
-You can get the plugin from the [https://addons.mozilla.org/en-US/firefox/addon/lookyloo/](Firefox Add-Ons store).
+You can get the plugin from the [Firefox Add-Ons store](https://addons.mozilla.org/en-US/firefox/addon/lookyloo/).
 
 # Dev notes
 
-You will need to install [https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/](web-ext) first.
+You will need to install [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) first.
 
 And then you can run the app in development mode with:
 
@@ -40,4 +40,4 @@ web-ext run
 ```
 
 The best ressources for learning how to write and contribute to extensions
-are on the [https://extensionworkshop.com/](extension website).
+are on the [extension website](https://extensionworkshop.com/).
