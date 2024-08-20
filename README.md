@@ -37,7 +37,12 @@ And then you can run the app in development mode with:
 
 ```bash
 web-ext run
+# or if it doesn't work
+MOZ_ENABLE_WAYLAND=1 TMPDIR=~/tmp npx web-ext run
 ```
+
+
 
 The best ressources for learning how to write and contribute to extensions
 are on the [extension website](https://extensionworkshop.com/).
+

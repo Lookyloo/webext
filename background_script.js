@@ -4,7 +4,7 @@ function handleClick() {
       browser.runtime.openOptionsPage();
 }
 
-browser.browserAction.onClicked.addListener(handleClick);
+browser.action.onClicked.addListener(handleClick);
 
 
 browser.runtime.onInstalled.addListener(async ({ reason, temporary }) => {

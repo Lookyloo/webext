@@ -7,8 +7,12 @@ async function onGot(tabs){
 
   const config = await browser.storage.local.get().then(res => res);
 
-  const referrer = await browser.tabs.executeScript(tab.id, {
-        code: 'document.referrer'
+  const referrer = await browser.scripting.executeScript({
+      target: {
+          tabId: tab.id,
+          allFrames: true,
+      },
+      func: () => { return document.referrer },
   }).then(result => result[0]);
 
   let cookies = []
