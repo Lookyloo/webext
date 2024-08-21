@@ -18,7 +18,7 @@ async function onGot(tabs){
   if (config.private) {
     cookies = await browser.cookies.getAll({
       storeId: tab.cookieStoreId
-    }).then((cookies) => cookies);
+    });
   };
 
   let data = {url: tab.url , listing: 0}
