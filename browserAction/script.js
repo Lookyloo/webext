@@ -1,5 +1,5 @@
 async function onGot(tabs){
-  const tab = tabs.pop();
+  const tab = tabs[0];
   let pass_referrer = document.querySelector('.capture #referrer:checked') !== null;
   let pass_cookies = document.querySelector('.capture #cookies:checked') !== null;
   let pass_ua = document.querySelector('.capture #useragent:checked') !== null;
@@ -9,11 +9,10 @@ async function onGot(tabs){
 
   const referrer = await browser.scripting.executeScript({
       target: {
-          tabId: tab.id,
-          allFrames: true,
+          tabId: tab.id
       },
-      func: () => { return document.referrer },
-  }).then(result => result[0]);
+      func: () => { return document.referrer; },
+  }).then(result => result[0].result);
 
   let cookies = []
   if (config.private) {
@@ -23,7 +22,7 @@ async function onGot(tabs){
   };
 
   let data = {url: tab.url , listing: 0}
-  if (pass_referrer === true) {
+  if (pass_referrer === true && referrer !== "") {
       data.referer = referrer;
   }
   if (config.private && pass_cookies === true) {
@@ -71,8 +70,8 @@ function onError(error) {
 
 function launchCapture() {
   document.querySelector("#capture").disabled = true;
-  const gettingCurrent = browser.tabs.query({currentWindow: true, active: true});
-  gettingCurrent.then(onGot, onError);
+  browser.tabs.query({ currentWindow: true, active: true })
+    .then(onGot, onError);
 };
 
 document.addEventListener('DOMContentLoaded', (e) => {
