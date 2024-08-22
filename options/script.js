@@ -1,3 +1,5 @@
+"use strict";
+
 async function saveOptions(e) {
   let private_ok = false;
 

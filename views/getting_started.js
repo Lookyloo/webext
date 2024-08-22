@@ -1,3 +1,5 @@
+"use strict";
+
 function uninstall() {
   var settingUrl = browser.runtime.setUninstallURL("https://lookyloo.circl.lu/capture");
   settingUrl.then(() => true, (error) => true);

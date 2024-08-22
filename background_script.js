@@ -1,5 +1,7 @@
 // Put all the javascript code here, that you want to execute in background.
 
+"use strict";
+
 function handleClick() {
       browser.runtime.openOptionsPage();
 }

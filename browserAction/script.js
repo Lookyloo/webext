@@ -1,8 +1,12 @@
+"use strict";
+
 async function onGot(tabs){
   const tab = tabs[0];
   let pass_referrer = document.querySelector('.capture #referrer:checked') !== null;
+  let pass_locale = document.querySelector('.capture #locale:checked') !== null;
   let pass_cookies = document.querySelector('.capture #cookies:checked') !== null;
   let pass_ua = document.querySelector('.capture #useragent:checked') !== null;
+  let allow_tracking = document.querySelector('.capture #allow_tracking:checked') !== null;
 
 
   const config = await browser.storage.local.get().then(res => res);
@@ -30,6 +34,12 @@ async function onGot(tabs){
   }
   if (pass_ua === true) {
       data.user_agent = navigator.userAgent;
+  }
+  if (pass_locale === true) {
+      data.locale = browser.i18n.getUILanguage();
+  }
+  if (allow_tracking === true) {
+      data.allow_tracking = true;
   }
 
   console.log(`${config.url}/submit`);
@@ -81,6 +91,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
       document.querySelector(".stored-url").textContent = `Current instance: ${res.url}`
   });
   document.querySelector(".current-ua").textContent = `Current User-Agent: ${navigator.userAgent}`
+  document.querySelector(".current-locale").textContent = `Current Locale: ${browser.i18n.getUILanguage()}`
   browser.storage.local.get().then(res => {
       if (!res.private) {
         document.querySelector(".cookie-box").hidden = true;

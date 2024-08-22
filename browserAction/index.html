@@ -23,7 +23,16 @@
         </div>
         <div class="cookie-box">
           <input type="checkbox" id="cookies">
-          <label for="cookies">Pass all the cookies to the capture</label>
+          <label for="cookies">[Dangerous] Pass all the cookies of the browser to the capture</label>
+        </div>
+        <div>
+          <input type="checkbox" id="locale">
+          <label for="locale">Pass the locale of the browser</label>
+          <div style="font-size:12px" class="current-locale"></div>
+        </div>
+        <div class="tracking-box">
+          <input type="checkbox" id="allow_tracking">
+          <label for="allow_tracking">Attempt to allow all tracking during the capture</label>
         </div>
         <button id="capture">Launch Capture on Lookyloo</button>
         <div style="font-size:15px; color:red;" class="error-submit"></div>
