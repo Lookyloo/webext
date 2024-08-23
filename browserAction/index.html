@@ -9,31 +9,34 @@
       <div class="capture">
         <center>
           <div style="font-size:30px">Lookyloo</div>
-          <div style="font-size:15px" class="stored-url"></div>
+          <div style="font-size:15px">
+            Current URL: <a id="current-url">Not defined</a>
+          </div>
         </center>
         <hr/>
         <div>
           <input type="checkbox" id="useragent">
-          <label for="useragent">Pass the current useragent to the capture</label>
-          <div style="font-size:12px" class="current-ua"></div>
+          <label for="useragent">Pass the current user-agent (<b style="font-size:12px" id="current-ua"></b>)
+          </label>
         </div>
         <div>
           <input type="checkbox" id="referrer">
-          <label for="referrer">Pass referer of current tab to the capture</label>
+          <label for="referrer">Pass the referer of the current tab</label>
         </div>
-        <div class="cookie-box">
+        <div id="cookie-box">
           <input type="checkbox" id="cookies">
-          <label for="cookies">[Dangerous] Pass all the cookies of the browser to the capture</label>
+          <label for="cookies"><strong>[Dangerous]</strong> Pass <b>all</b> the cookies of the browser</label>
         </div>
         <div>
           <input type="checkbox" id="locale">
-          <label for="locale">Pass the locale of the browser</label>
-          <div style="font-size:12px" class="current-locale"></div>
+          <label for="locale">Pass the current locale (<b style="font-size:12px" id="current-locale"></b>)
+          </label>
         </div>
         <div class="tracking-box">
           <input type="checkbox" id="allow_tracking">
           <label for="allow_tracking">Attempt to allow all tracking during the capture</label>
         </div>
+        <br>
         <button id="capture">Launch Capture on Lookyloo</button>
         <div style="font-size:15px; color:red;" class="error-submit"></div>
     </div>

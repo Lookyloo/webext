@@ -14,15 +14,15 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "browser-extension@lookyloo.eu",
+      "id": "lookyloo-submit@example.com",
       "strict_min_version": "127.0"
     },
     "gecko_android": {
-      "id": "browser-extension@lookyloo.eu",
+      "id": "lookyloo-submit@example.com",
       "strict_min_version": "127.0"
     },
     "safari": {
-      "id": "browser-extension@lookyloo.eu",
+      "id": "lookyloo-submit@example.com",
       "strict_min_version": "15"
     }
   },

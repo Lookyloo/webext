@@ -86,15 +86,16 @@ function launchCapture() {
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
-  var lookylooURL = browser.storage.local.get();
-  lookylooURL.then((res) => {
-      document.querySelector(".stored-url").textContent = `Current instance: ${res.url}`
+  browser.storage.local.get()
+    .then((res) => {
+      document.querySelector('#current-url').href = res.url;
+      document.querySelector('#current-url').textContent = res.url;
   });
-  document.querySelector(".current-ua").textContent = `Current User-Agent: ${navigator.userAgent}`
-  document.querySelector(".current-locale").textContent = `Current Locale: ${browser.i18n.getUILanguage()}`
+  document.querySelector("#current-ua").textContent = navigator.userAgent;
+  document.querySelector("#current-locale").textContent = browser.i18n.getUILanguage();
   browser.storage.local.get().then(res => {
       if (!res.private) {
-        document.querySelector(".cookie-box").hidden = true;
+        document.querySelector("#cookie-box").hidden = true;
       }
   });
 
