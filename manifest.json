@@ -55,5 +55,9 @@
     "scripting",
     "storage"
   ],
+  "categories": { "firefox": ["privacy-security"] },
+  "summary": {
+    "en-US": "Submit a URL to lookyloo"
+  },
   "version": "0.1.1"
 }
