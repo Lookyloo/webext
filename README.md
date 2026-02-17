@@ -1,4 +1,4 @@
-This is a web extension to submit a URL (along with with its context) to a Lookyloo instance.
+npx web-extThis is a web extension to submit a URL (along with with its context) to a Lookyloo instance.
 
 **Disclaimer**: This extension is aimed for users of [Lookyloo](https://www.lookyloo.eu)
 who have their own instance of the platform. It requires invasive  permissions
@@ -39,6 +39,12 @@ And then you can run the app in development mode with:
 web-ext run
 # or if it doesn't work
 MOZ_ENABLE_WAYLAND=1 TMPDIR=~/tmp npx web-ext run
+```
+
+Update packages:
+
+```bash
+npm update
 ```
 
 
