@@ -41,12 +41,19 @@ web-ext run
 MOZ_ENABLE_WAYLAND=1 TMPDIR=~/tmp npx web-ext run
 ```
 
-Update packages:
+## Update packages:
 
 ```bash
 npm update
 ```
 
+## Sign & submit
+
+The variables are in the .env file. Info for [signing](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/#package-sign-and-publish-an-extension).
+
+```bash
+npx web-ext sign --channel=listed --amo-metadata=metadata.json --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET
+```
 
 
 The best ressources for learning how to write and contribute to extensions

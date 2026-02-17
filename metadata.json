@@ -1,0 +1,9 @@
+{
+  "version": { "license": "BSD-2-Clause" },
+  "categories": { "firefox": ["web-development", "privacy-security"], "android": ["web-development", "privacy-security"] },
+  "summary": {"en-US": "Submit a URL to capture to a lookyloo instance"},
+  "requires_payment": false,
+  "homepage": {
+    "en-US": "https://github.com/Lookyloo/webext"
+  }
+}
