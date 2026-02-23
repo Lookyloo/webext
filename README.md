@@ -1,4 +1,4 @@
-npx web-extThis is a web extension to submit a URL (along with with its context) to a Lookyloo instance.
+This is a web extension to submit a URL (along with with its context) to a Lookyloo instance.
 
 **Disclaimer**: This extension is aimed for users of [Lookyloo](https://www.lookyloo.eu)
 who have their own instance of the platform. It requires invasive  permissions
